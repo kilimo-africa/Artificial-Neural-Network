@@ -1,9 +1,6 @@
 from numpy import exp, array, dot
-import pandas as pd
 
-import read
 from read import normalized
-
 
 class NeuralNetwork():
     def __init__(self, layer1, layer2):
@@ -60,6 +57,7 @@ class NeuralNetwork():
         print("Layer 2 (1 neuron, with 2 inputs):")
         print(self.layer2)
 
+
 if __name__ == "__main__":
     # Create layer 1 (2 neurons, each with 3 inputs)
     layer1 = array([[0.2, 0.1], [0.3, 0.1], [0.2, 0.1]])
@@ -81,12 +79,12 @@ if __name__ == "__main__":
     normalized_set = normalized()
     # The training set. We have 6 examples, each consisting of 3 input values
     # and 1 output value.
-    print(normalized_set['input1'][0])
+    # print(normalized_set['input1'][0])
     # training_set_inputs = array([[0, 0, 1], [0, 1, 1], [1, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1], [0, 0, 0]])
     # training_set_outputs = array([[0, 1, 1, 1, 1, 0, 0]]).T
 
-    #training_set_inputs = array(
-        #[[0.273, 0.5, 0.6], [0.5, 0.6, 0.1], [0.6, 0.1, 0], [0.1, 0, 0.8], [0, 0.8, 1], [0.8, 1, 0.6]])
+    # training_set_inputs = array(
+    # [[0.273, 0.5, 0.6], [0.5, 0.6, 0.1], [0.6, 0.1, 0], [0.1, 0, 0.8], [0, 0.8, 1], [0.8, 1, 0.6]])
 
     training_set_inputs = array(
         [
@@ -108,8 +106,8 @@ if __name__ == "__main__":
             normalized_set['output'][5]
         ]]).T
 
-    print("Training set: ", training_set_inputs)
-    print("Training set: ", training_set_outputs)
+    print("Inputs training set: \n", training_set_inputs)
+    print("Output training set: \n", training_set_outputs)
 
     # Train the neural network using the training set.
     # Do it 60,000 times and make small adjustments each time.
@@ -123,3 +121,5 @@ if __name__ == "__main__":
     output = neural_network.think(array([0.5, 0.6, 0.1]))
     print("The weights of the new situation: ", output[0])
     print("The expected output of the new situation: ", output[1])
+
+    #expected_output = (output[1] * (max_value - min_value)) - min_value
